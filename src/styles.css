@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::placeholder {
+    color: #9595a0 !important;
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    /* Edge 12-18 */
+    color: #9595a0 !important;
+}
