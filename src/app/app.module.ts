@@ -13,6 +13,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 // github.com/datlt2306/web208
 @NgModule({
@@ -26,6 +28,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     HomePageComponent,
     MovieDetailComponent,
     MovieListComponent,
+    HeaderComponent,
+    SidebarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
