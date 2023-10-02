@@ -1,145 +1,30 @@
-<div class="mb-16">
+<div class="mb-14">
     <div class="flex items-center justify-between pb-6">
-        <h3 class="font-medium text-2xl">{{title}}</h3>
+        <div class="flex items-center gap-3">
+            <span class="font-medium text-2xl uppercase">{{title}}</span>
+            <img width="30" src="https://pro.goonus.io/images/header/hot.svg" alt="">
+        </div>
         <div class="select-none">
-            <span class="text-[#9999a5] cursor-pointer hover:underline">Tất cả</span>
+            <span class="text-[#9999a5] cursor-pointer hover:underline text-lg">Tất cả ></span>
         </div>
     </div>
-    <div class="grid grid-cols-6 gap-6">
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
+    <div class="grid grid-cols-4 xl:grid-cols-6 gap-6">
+        <div class="flex items-center flex-col movie-item duration-200" *ngFor="let movie of movies"
+            routerLink="/movie/{{movie._id}}">
+            <div class="flex items-center justify-center rounded-sm cursor-pointer duration-200 relative">
+                <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
+                    <span class="font-semibold text-xs cursor-pointer">HD</span>
                 </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói Đứa Con Của Sói Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
+                <div class="mask duration-200"></div>
+                <div class="absolute rounded-full opacity-0 duration-300 play-video">
+                    <div class="w-14 h-14 rounded-full bg-[#000000ab] flex items-center justify-center">
+                        <i class="fa-solid fa-play text-2xl"></i>
+                    </div>
                 </div>
+                <img class="rounded-md" [src]="movie.imageUrl" alt="">
             </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
-                </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
-                </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
-                </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
-                </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
-                </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
-            </div>
-        </div>
-        <div
-            class="flex items-center justify-center rounded-sm cursor-pointer hover:scale-105 duration-200 relative movie-item">
-            <div class="bg-[#b72929] absolute top-1.5 left-1.5 rounded-sm px-1.5 flex items-center justify-center">
-                <span class="font-semibold text-xs cursor-pointer">HD</span>
-            </div>
-            <div class="mask duration-200"></div>
-            <div class="absolute rounded-full opacity-0 duration-300 play-video">
-                <div class="w-14 h-14 rounded-full bg-[#0000009a] flex items-center justify-center">
-                    <i class="fa-solid fa-play text-2xl"></i>
-                </div>
-            </div>
-            <img class="rounded-md" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
-            <div class="absolute bottom-0 p-3 bg-gradient-to-t from-black w-full rounded-b-md">
-                <h3 class="text-sm font-medium">Đứa Con Của Sói</h3>
-                <p class="text-[#b5b5be] text-xs">Daughter of the Wolf </p>
+            <div class="w-full rounded-b-md bg-transparent mt-1.5 movie-title">
+                <h3 class="text-sm font-medium cursor-pointer">{{movie.title}}</h3>
             </div>
         </div>
     </div>

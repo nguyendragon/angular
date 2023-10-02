@@ -1,0 +1,79 @@
+<div>
+    <div class="py-3 flex items-center justify-between">
+        <div class="flex items-center justify-between gap-3">
+            <h3 class="text-xl font-medium text-white">Danh sách Phim</h3>
+            <div routerLink="/admin/movie/add"
+                class="bg-blue-500 px-3 py-1 rounded-md cursor-pointer hover:opacity-80 duration-200 active:opacity-50"
+                [spellcheck]="false">
+                <span class="text-white select-none ">+ Thêm phim mới</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <input type="text" placeholder="Nhập tên phim hoặc mô tả phim"
+                class="min-w-[360px] bg-[#374151] px-3 py-1.5 outline-none rounded-md">
+            <div class="bg-blue-500 px-3 py-1.5 rounded-md cursor-pointer active:opacity-60 duration-200"
+                [spellcheck]="false">
+                <span class="text-white select-none ">Tìm kiếm</span>
+            </div>
+        </div>
+    </div>
+    <div class="relative overflow-x-auto rounded-md">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th class="px-6 py-3">
+                        Tên phim
+                    </th>
+                    <th class="px-6 py-3">
+                        Hình ảnh
+                    </th>
+                    <th class="px-6 py-3">
+                        Số tập
+                    </th>
+                    <th class="px-6 py-3">
+                        Thể loại
+                    </th>
+                    <th class="px-6 py-3">
+                        Năm phát hành
+                    </th>
+                    <th class="px-6 py-3">
+                        Hành động
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let movie of movies"
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white font-medium">
+                    <td class="px-6 py-3 whitespace-nowrap">
+                        {{movie.title}}
+                    </td>
+                    <td class="px-6 py-3">
+                        <img width=50 class="rounded-sm" [src]="movie.imageUrl" alt="">
+                    </td>
+                    <td class="px-6 py-3">
+                        {{movie.episode.length}}
+                    </td>
+                    <td class="px-6 py-3">
+                        {{movie.categories[0].name}}
+                    </td>
+                    <td class="px-6 py-3">
+                        {{movie.year}}
+                    </td>
+                    <td class="px-6 py-3">
+                        <button routerLink="/admin/movie/{{movie._id}}/edit"
+                            class="bg-blue-500 px-3 py-1.5 mx-1.5 rounded-md active:opacity-70 active:scale-90 duration-200">
+                            <i class="fa-solid fa-pen-to-square text-white"></i>
+                        </button>
+                        <button (click)="handleDeleteMovie(movie._id, movie.title)"
+                            class="bg-red-500 px-3 py-1.5 mx-1.5 rounded-md active:opacity-70 active:scale-90 duration-200">
+                            <i class="fa-solid fa-trash text-white"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <app-delete-modal [active]="isDeleteModal" [movieId]="movieId" /> -->

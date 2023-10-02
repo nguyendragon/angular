@@ -13,9 +13,10 @@
     justify-content: center;
 }
 
-.movie-item:hover {
-    box-shadow: rgba(6, 181, 212, 0.501) 0px 0px 50px;
-}
+/* .movie-item:hover {
+    box-shadow: rgba(6, 181, 212, 0.501) 0px 0px 5px;
+    scale: 1.05;
+} */
 
 .mask {
     display: none;
@@ -27,8 +28,20 @@
     background-color: #1010105e;
 }
 
-.movie-item:hover>.mask,
-.movie-item:hover>.play-video {
+.movie-item:hover .mask,
+.movie-item:hover .play-video {
     display: block;
     opacity: 1;
+}
+
+.movie-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.movie-title:hover {
+    color: #f5c518;
 }

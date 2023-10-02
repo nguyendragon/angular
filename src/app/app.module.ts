@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchBoxPipe } from './search-box.pipe';
 import { ChangeNumberPipe } from './change-number.pipe';
@@ -15,6 +15,15 @@ import { MovieDetailComponent } from './pages/movie-detail/movie-detail.componen
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { TopMovieComponent } from './components/top-movie/top-movie.component';
+import { AdminMovieComponent } from './pages/admin/admin-movie/admin-movie.component';
+import { AdminUserComponent } from './pages/admin/admin-user/admin-user.component';
+import { AdminCategoryComponent } from './pages/admin/admin-category/admin-category.component';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { AdminSettingComponent } from './pages/admin/admin-setting/admin-setting.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { MovieEditComponent } from './pages/movie-edit/movie-edit.component';
+import { MovieAddComponent } from './pages/movie-add/movie-add.component';
 
 // github.com/datlt2306/web208
 @NgModule({
@@ -30,8 +39,23 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MovieListComponent,
     HeaderComponent,
     SidebarComponent,
+    TopMovieComponent,
+    AdminMovieComponent,
+    AdminUserComponent,
+    AdminCategoryComponent,
+    AdminDashboardComponent,
+    AdminSettingComponent,
+    DeleteModalComponent,
+    MovieEditComponent,
+    MovieAddComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,1 +1,106 @@
-<p>movie-detail works!</p>
+<div class="pl-16 w-full">
+    <div class="text-[#9999a5] text-sm mb-6">
+        {{movie.categories[0].name}} / {{movie.title}}
+    </div>
+    <div class="grid grid-cols-12 gap-10">
+        <div class="col-span-3 relative">
+            <div class="bg-[#b72929] absolute top-3 left-3 rounded-sm px-3 py-1 flex items-center justify-center">
+                <span class="font-semibold text-xs cursor-pointer select-none">HD</span>
+            </div>
+            <img class="rounded-xl" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
+        </div>
+        <div class="col-span-9">
+            <h3 class="text-2xl mb-6">{{movie.title}}</h3>
+            <div class="flex items-center gap-3">
+                <button class="flex items-center gap-3 px-12 py-3 bg-red-600 hover:opacity-70 rounded-md duration-200">
+                    <span>Xem phim</span>
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <button
+                    class="flex items-center gap-3 px-12 py-3 bg-[#4f4f4f]  hover:opacity-70 rounded-md duration-200">
+                    <span>Trailer</span>
+                    <i class="fa-solid fa-video"></i>
+                </button>
+            </div>
+            <div class="text-[#9999a5] text-sm flex gap-6 my-6">
+                <div class="mb-3 flex flex-col">
+                    <span class="mb-3">Thể loại</span>
+                    <span class="text-white font-medium">
+                        {{movie.categories[0].name}}
+                    </span>
+                </div>
+                <div class="mb-3 flex flex-col">
+                    <span class="mb-3">Quốc gia</span>
+                    <span class="text-white font-medium">Trung Quốc</span>
+                </div>
+                <div class="mb-3 flex flex-col">
+                    <span class="mb-3">Năm phát hành</span>
+                    <span class="text-white font-medium">{{movie.year}}</span>
+                </div>
+                <div class="mb-3 flex flex-col">
+                    <span class="mb-3">Thời lượng</span>
+                    <span class="text-white font-medium">45 phút</span>
+                </div>
+            </div>
+            <div class="">
+                <div class="text-[#9999a5] text-sm my-3">Giới thiệu</div>
+                <p class="text-base extract">
+                    {{movie.extract}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-12 bg-[#222] px-3 rounded-md">
+        <div class="flex gap-3 border-b border-gray-700">
+            <div (click)="toggleServer(1)" [ngClass]="{
+                'text-left px-3 py-3 cursor-pointer': true,
+                'border-b-4 border-red-600': isActive == 1
+            }">
+                <span class="font-medium select-none"> Sever 1 </span>
+            </div>
+            <div (click)="toggleServer(2)" [ngClass]="{
+                'text-left px-3 py-3 cursor-pointer': true,
+                'border-b-4 border-red-600': isActive == 2
+            }">
+                <span class="font-medium select-none"> Sever 2 </span>
+            </div>
+        </div>
+        <div class="flex items-center flex-wrap gap-3 py-6">
+            <div class="bg-[#4f4f4f] w-9 h-9 flex items-center justify-center rounded-md cursor-pointer hover:bg-red-600 duration-200"
+                *ngFor="let chap of movie.episode; index as i">
+                <span class="select-none">{{i + 1 < 10 ? '0' + (i + 1) : i + 1}}</span>
+            </div>
+            <div class="w-full py-3 bg-[#10101041] text-center" *ngIf="movie.episode.length <= 0">
+                <span class="text-gray-500">Phim chưa có nội dung</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-12">
+        <div class="bg-[#222] p-3 rounded-md">
+            <div class="flex items-center justify-between pb-6">
+                <h3 class="uppercase text-lg font-medium">Bình luận</h3>
+                <i class="fa-solid fa-rotate-right text-2xl mr-3 cursor-pointer active:rotate-90 duration-100"></i>
+            </div>
+            <div>
+                <textarea placeholder="Nhập bình luận của bạn" rows="3"
+                    class="w-full p-1.5 rounded-sm outline-none bg-[#1010109a] caret-red-500 border border-transparent focus:border-red-600 duration-200"></textarea>
+                <div class="flex items-center justify-between mt-3">
+                    <div
+                        class="flex items-center justify-center bg-[#4f4f4f] p-3 rounded-sm cursor-pointer hover:opacity-50 duration-200">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+                    <button
+                        class="flex items-center gap-3 bg-red-600 rounded-sm px-6 py-1.5 hover:opacity-70 duration-200">
+                        <span class="text-base">Bình luận</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-6 py-16 bg-[#10101041] text-center">
+                <span class="text-gray-500">Chưa có bình luận nào</span>
+            </div>
+        </div>
+    </div>
+</div>
