@@ -6,6 +6,7 @@ const router = Router();
 
 // CRUD category
 router.get('/', category.getAllCategory);
+
 router.get('/:categoryId', category.getCategoryById);
 
 router.post('/', checkPermission, category.createCategory);

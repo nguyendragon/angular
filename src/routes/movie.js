@@ -11,10 +11,10 @@ router.get('/search', movies.SearchMovieByKeywords);
 
 router.get('/:movieId', movies.getMovieById);
 
-router.post('/', checkPermission, movies.createMovie);
+router.post('/', movies.createMovie);
 
-router.put('/', checkPermission, movies.updateMovie);
+router.put('/', movies.updateMovie);
 
-router.delete('/', checkPermission, movies.deleteMovie);
+router.delete('/:movieId', movies.deleteMovie);
 
 export default router;

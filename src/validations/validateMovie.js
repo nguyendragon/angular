@@ -19,6 +19,10 @@ export const validateMovie = (data) => {
             'string.empty': 'Vui lòng nhập mô tả',
             'any.required': 'Mô tả là trường bắt buộc',
         }),
+        nation: Joi.string().optional(),
+        episode: Joi.array().optional(),
+        duration: Joi.string().optional(),
+        imageUrl: Joi.string().optional(),
     });
 
     const { error } = schema.validate(data);
@@ -27,7 +31,7 @@ export const validateMovie = (data) => {
 
 export const validateMovieUpdate = (data) => {
     const schema = Joi.object({
-        id: Joi.string().trim().optional().empty('').messages({
+        _id: Joi.string().trim().optional().empty('').messages({
             'string.empty': 'Vui lòng nhập ID Phim',
         }),
         title: Joi.string().trim().optional().empty('').messages({
@@ -43,6 +47,10 @@ export const validateMovieUpdate = (data) => {
         extract: Joi.string().optional().empty('').messages({
             'string.empty': 'Vui lòng nhập mô tả',
         }),
+        nation: Joi.string().optional(),
+        episode: Joi.array().optional(),
+        duration: Joi.string().optional(),
+        imageUrl: Joi.string().optional(),
     });
 
     const { error } = schema.validate(data);

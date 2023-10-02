@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 // Controller
 export const getAllMovies = async function (req, res) {
     try {
-        const movies = await Movie.find({}).populate({
+        const movies = await Movie.find({}).limit(11).sort({ fieldName: -1 }).populate({
             path: 'categories',
         });
 
@@ -118,7 +118,7 @@ export const updateMovie = async function (req, res) {
                 }
             }
         }
-        const movie = await Movie.findOneAndUpdate({ _id: movieData.id }, { ...movieData }, { new: true });
+        const movie = await Movie.findOneAndUpdate({ _id: movieData._id }, { ...movieData }, { new: true });
 
         if (!movie) {
             res.status(404).json({ error: 'Movie not found' });
@@ -134,13 +134,13 @@ export const updateMovie = async function (req, res) {
 
 export const deleteMovie = async function (req, res) {
     try {
-        const { id } = req.body;
+        const { movieId } = req.params;
 
-        if (!mongoose.isValidObjectId(String(id))) {
+        if (!mongoose.isValidObjectId(String(movieId))) {
             return res.status(400).json({ message: 'Invalid movieId' });
         }
 
-        const movie = await Movie.findByIdAndDelete({ _id: id });
+        const movie = await Movie.findByIdAndDelete({ _id: movieId });
 
         if (!movie) {
             res.status(404).json({ error: 'Movie not found' });

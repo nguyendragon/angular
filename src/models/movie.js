@@ -8,6 +8,8 @@ const moviesSchema = new Schema({
     categories: [{ type: mongoose.Types.ObjectId, ref: 'Category' }],
     extract: String,
     imageUrl: String,
+    duration: String,
+    nation: String,
     episode: Array,
 });
 
