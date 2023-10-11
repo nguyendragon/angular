@@ -7,7 +7,7 @@
             <div class="bg-[#b72929] absolute top-3 left-3 rounded-sm px-3 py-1 flex items-center justify-center">
                 <span class="font-semibold text-xs cursor-pointer select-none">HD</span>
             </div>
-            <img class="rounded-xl" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg" alt="">
+            <img class="rounded-xl" [src]="movie.imageUrl" alt="">
         </div>
         <div class="col-span-9">
             <h3 class="text-2xl mb-6">{{movie.title}}</h3>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3 flex flex-col">
                     <span class="mb-3">Quốc gia</span>
-                    <span class="text-white font-medium">Trung Quốc</span>
+                    <span class="text-white font-medium">{{movie.nation}}</span>
                 </div>
                 <div class="mb-3 flex flex-col">
                     <span class="mb-3">Năm phát hành</span>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="mb-3 flex flex-col">
                     <span class="mb-3">Thời lượng</span>
-                    <span class="text-white font-medium">45 phút</span>
+                    <span class="text-white font-medium">{{movie.duration}} phút</span>
                 </div>
             </div>
             <div class="">

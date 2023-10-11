@@ -1,0 +1,11 @@
+#search-box .search-item {
+    border-bottom: 1px solid #1f1f1f;
+}
+
+#search-box .search-item:hover {
+    opacity: 0.7;
+}
+
+#search-box .search-item:last-child {
+    border: none;
+}

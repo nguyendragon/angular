@@ -30,4 +30,10 @@ export class MovieService {
   deleteMovieById(id: string | number): Observable<any> {
     return this.http.delete<any>(this.API_URL + `/${id}`);
   }
+
+  searchMovie(searchText: string): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>(
+      this.API_URL + '/search?keywords=' + searchText
+    );
+  }
 }

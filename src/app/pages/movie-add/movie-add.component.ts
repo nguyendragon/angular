@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ICategory } from 'src/app/interfaces/category';
 import { IMovie } from 'src/app/interfaces/movie';
@@ -14,31 +15,30 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieAddComponent {
   categories: ICategory[] = [];
   movie!: IMovie;
+  imageUrl: string = '';
 
   movieForm = this.formBuilder.group({
-    title: [
-      'Quyến Tư Lượng - The Island of Siliang (2021)',
-      [Validators.required],
-    ],
-    year: ['2023', [Validators.required]],
-    categories: ['65111220f22c2c9950f4c4b0', [Validators.required]],
-    extract: [
-      'Quyến Tư Lượng - The Island of Siliang (2021)',
-      [Validators.required],
-    ],
-    imageUrl: [
-      'https://khoaiphim.com/public/upload/cover/cuoc-chien-sinh-ton-7-escape.jpeg',
-      [Validators.required],
-    ],
-    duration: ['12', [Validators.required]],
-    nation: ['Việt Nam', [Validators.required]],
+    title: ['', [Validators.required]],
+    year: ['', [Validators.required]],
+    categories: ['', [Validators.required]],
+    extract: ['', [Validators.required]],
+    imageUrl: ['', [Validators.required]],
+    duration: ['', [Validators.required]],
+    nation: ['', [Validators.required]],
     episode: ['1', [Validators.required]],
   });
+
+  handleImageUrl(e: any) {
+    console.log(e);
+
+    console.log(this.imageUrl);
+  }
 
   constructor(
     private categoryService: CategoryService,
     private movieService: MovieService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: Router
   ) {
     this.categoryService
       .getAllCategory()
@@ -56,6 +56,8 @@ export class MovieAddComponent {
 
   onHandleUpdate() {
     // kiểm tra nếu form hợp lệ
+    console.log(this.movieForm);
+
     if (this.movieForm.valid) {
       const formData = this.movieForm.value;
 
@@ -78,6 +80,7 @@ export class MovieAddComponent {
 
       this.movieService.addMovie(newMovie).subscribe((movie) => {
         alert(movie.message);
+        this.route.navigate(['/admin/movie']);
       });
     } else {
       alert(this.movieForm.status);

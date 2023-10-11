@@ -1,0 +1,93 @@
+<div class="relative">
+    <div class="relative">
+        <div class="absolute left-5 top-1/2 -translate-y-1/2">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <input [(ngModel)]="searchText" (keyup.enter)="handleSearch($event)"
+            placeholder="Nhập từ khóa. Ví dụ: superman ..." type="text" spellcheck="true"
+            class="px-12 pl-14 py-2 rounded-full outline-none bg-[#101010] min-w-[460px] caret-red-500 border border-transparent focus:border-red-600 duration-200">
+    </div>
+
+    <div *ngIf="searchResults.length > 0" id="search-box"
+        class="absolute bg-[#101010] w-full h-[460px] z-20 mt-2 rounded-md p-3 overflow-y-auto">
+        <div class="flex items-start gap-3 py-1 duration-150 cursor-pointer search-item">
+            <img width="60" class="rounded-sm"
+                src="https://khoaiphim.com/public/upload/cover/cuoc-chien-sinh-ton-7-escape.jpeg" alt="">
+            <div>
+                <h3 class="text-md mb-1.5">Quyến Tư Lượng - The Island of Siliang (2021)</h3>
+                <p class="text-[#ffffffc2] text-xs ellipsis-search-text">
+                    Câu chuyện xoay quanh vụ sát hại dã man Hamdi
+                    Atılbay, là bước ngoặt
+                    đối với Leyla, một người cũng quyết tâm tìm kiếm một khởi đầu mới và Kenan, một nhà báo đầy tham
+                    vọng đánh giá lại cuộc đời mình. Khi họ vật lộn với cuộc điều tra giết người, sự thật cá nhân của họ
+                    bị tan vỡ, dẫn đến một câu chuyện tình yêu sâu sắc đồng thời thách thức niềm tin của họ. Câu chuyện
+                    này đi sâu vào việc khám phá bản thân giữa những điều bí ẩn, khám phá xem những sự kiện bất ngờ có
+                    thể định hình lại cuộc sống và những ưu tiên như thế nào.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 py-1 duration-150 cursor-pointer search-item">
+            <img width="60" class="rounded-sm" src="https://khoaiphim.com/public/upload/cover/daughter-of-the-wolf.jpg"
+                alt="">
+            <div>
+                <h3 class="text-md mb-1.5">Quyến Tư Lượng - The Island of Siliang (2021)</h3>
+                <p class="text-[#ffffffc2] text-xs ellipsis-search-text">
+                    Câu chuyện xoay quanh vụ sát hại dã man Hamdi
+                    Atılbay, là bước ngoặt
+                    đối với Leyla, một người cũng quyết tâm tìm kiếm một khởi đầu mới và Kenan, một nhà báo đầy tham
+                    vọng đánh giá lại cuộc đời mình. Khi họ vật lộn với cuộc điều tra giết người, sự thật cá nhân của họ
+                    bị tan vỡ, dẫn đến một câu chuyện tình yêu sâu sắc đồng thời thách thức niềm tin của họ. Câu chuyện
+                    này đi sâu vào việc khám phá bản thân giữa những điều bí ẩn, khám phá xem những sự kiện bất ngờ có
+                    thể định hình lại cuộc sống và những ưu tiên như thế nào.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 py-1 duration-150 cursor-pointer search-item">
+            <img width="60" class="rounded-sm" src="https://khoaiphim.com/public/upload/cover/bambaska-biri.jpg" alt="">
+            <div>
+                <h3 class="text-md mb-1.5">Quyến Tư Lượng - The Island of Siliang (2021)</h3>
+                <p class="text-[#ffffffc2] text-xs ellipsis-search-text">
+                    Câu chuyện xoay quanh vụ sát hại dã man Hamdi
+                    Atılbay, là bước ngoặt
+                    đối với Leyla, một người cũng quyết tâm tìm kiếm một khởi đầu mới và Kenan, một nhà báo đầy tham
+                    vọng đánh giá lại cuộc đời mình. Khi họ vật lộn với cuộc điều tra giết người, sự thật cá nhân của họ
+                    bị tan vỡ, dẫn đến một câu chuyện tình yêu sâu sắc đồng thời thách thức niềm tin của họ. Câu chuyện
+                    này đi sâu vào việc khám phá bản thân giữa những điều bí ẩn, khám phá xem những sự kiện bất ngờ có
+                    thể định hình lại cuộc sống và những ưu tiên như thế nào.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 py-1 duration-150 cursor-pointer search-item">
+            <img width="60" class="rounded-sm" src="https://khoaiphim.com/public/upload/cover/the-wheel-of-time_1.jpg"
+                alt="">
+            <div>
+                <h3 class="text-md mb-1.5">Quyến Tư Lượng - The Island of Siliang (2021)</h3>
+                <p class="text-[#ffffffc2] text-xs ellipsis-search-text">
+                    Câu chuyện xoay quanh vụ sát hại dã man Hamdi
+                    Atılbay, là bước ngoặt
+                    đối với Leyla, một người cũng quyết tâm tìm kiếm một khởi đầu mới và Kenan, một nhà báo đầy tham
+                    vọng đánh giá lại cuộc đời mình. Khi họ vật lộn với cuộc điều tra giết người, sự thật cá nhân của họ
+                    bị tan vỡ, dẫn đến một câu chuyện tình yêu sâu sắc đồng thời thách thức niềm tin của họ. Câu chuyện
+                    này đi sâu vào việc khám phá bản thân giữa những điều bí ẩn, khám phá xem những sự kiện bất ngờ có
+                    thể định hình lại cuộc sống và những ưu tiên như thế nào.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3 py-1 duration-150 cursor-pointer search-item">
+            <img width="60" class="rounded-sm"
+                src="https://khoaiphim.com/public/upload/cover/cuoc-chien-sinh-ton-7-escape.jpeg" alt="">
+            <div>
+                <h3 class="text-md mb-1.5">Quyến Tư Lượng - The Island of Siliang (2021)</h3>
+                <p class="text-[#ffffffc2] text-xs ellipsis-search-text">
+                    Câu chuyện xoay quanh vụ sát hại dã man Hamdi
+                    Atılbay, là bước ngoặt
+                    đối với Leyla, một người cũng quyết tâm tìm kiếm một khởi đầu mới và Kenan, một nhà báo đầy tham
+                    vọng đánh giá lại cuộc đời mình. Khi họ vật lộn với cuộc điều tra giết người, sự thật cá nhân của họ
+                    bị tan vỡ, dẫn đến một câu chuyện tình yêu sâu sắc đồng thời thách thức niềm tin của họ. Câu chuyện
+                    này đi sâu vào việc khám phá bản thân giữa những điều bí ẩn, khám phá xem những sự kiện bất ngờ có
+                    thể định hình lại cuộc sống và những ưu tiên như thế nào.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

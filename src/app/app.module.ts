@@ -24,6 +24,8 @@ import { AdminSettingComponent } from './pages/admin/admin-setting/admin-setting
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { MovieEditComponent } from './pages/movie-edit/movie-edit.component';
 import { MovieAddComponent } from './pages/movie-add/movie-add.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 // github.com/datlt2306/web208
 @NgModule({
@@ -48,6 +50,8 @@ import { MovieAddComponent } from './pages/movie-add/movie-add.component';
     DeleteModalComponent,
     MovieEditComponent,
     MovieAddComponent,
+    FooterComponent,
+    SearchBoxComponent,
   ],
   imports: [
     BrowserModule,
