@@ -38,7 +38,7 @@ app.use((err, req, res, next) => {
 
 const connection = async () => {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/web18301');
+        await mongoose.connect('mongodb://127.0.0.1:27017/web18103');
         console.log('Connection Database successfully.');
     } catch (error) {
         console.error('Kết nối tới database thất bại: ', error);
