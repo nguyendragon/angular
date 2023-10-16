@@ -68,7 +68,7 @@ export const createMovie = async function (req, res) {
 
         await Category.findByIdAndUpdate(movie.categories, {
             $addToSet: {
-                movies: movie._id,
+                movieId: movie._id,
             },
         });
 
@@ -118,14 +118,22 @@ export const updateMovie = async function (req, res) {
                 }
             }
         }
-        const movie = await Movie.findOneAndUpdate({ _id: movieData._id }, { ...movieData }, { new: true });
+        const oldMovie = await Movie.findOne({ _id: movieData._id });
+        const newMovie = await Movie.findOneAndUpdate({ _id: movieData._id }, { ...movieData }, { new: true });
 
-        if (!movie) {
+        // Xóa `movieId` khỏi danh mục cũ
+        const oldCategoryId = oldMovie.categories;
+        await Category.findByIdAndUpdate(oldCategoryId, { $pull: { movieId: movieData._id } });
+        // Thêm `movieId` vào danh mục mới
+        await Category.findByIdAndUpdate(movieData.categories, { $addToSet: { movieId: movieData._id } });
+
+
+        if (!newMovie) {
             res.status(404).json({ error: 'Movie not found' });
             return;
         }
 
-        res.status(200).json({ message: 'Movie updated successfully', movie: movie });
+        res.status(200).json({ message: 'Movie updated successfully', movie: newMovie });
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Internal server error' });

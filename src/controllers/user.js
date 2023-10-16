@@ -78,6 +78,12 @@ export const signIn = async (req, res) => {
         res.send({
             message: 'Đăng nhập thành công.',
             accessToken: token,
+            userInfo: {
+                email: user.email,
+                admin: user.isAdmin,
+                lastname: user.lastname,
+                firstname: user.firstname,
+            },
         });
     } catch (err) {
         console.log(err);

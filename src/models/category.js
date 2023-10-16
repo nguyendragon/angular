@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const categoriesSchema = new Schema({
     name: String,
-    movieId: { type: mongoose.Types.ObjectId, ref: 'Movie' },
+    movieId: [{ type: mongoose.Types.ObjectId, ref: 'Movie' }],
 });
 
 const Category = mongoose.model('Category', categoriesSchema);
