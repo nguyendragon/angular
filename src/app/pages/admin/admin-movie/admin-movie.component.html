@@ -3,16 +3,16 @@
         <div class="flex items-center justify-between gap-3">
             <h3 class="text-xl font-medium text-white">Danh sách Phim</h3>
             <div routerLink="/admin/movie/add"
-                class="bg-blue-500 px-3 py-1 rounded-md cursor-pointer hover:opacity-80 duration-200 active:opacity-50"
+                class="bg-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md cursor-pointer hover:opacity-80 duration-200 active:opacity-50"
                 [spellcheck]="false">
                 <span class="text-white select-none ">+ Thêm phim mới</span>
             </div>
         </div>
 
         <div class="flex items-center gap-3">
-            <input type="text" placeholder="Nhập tên phim hoặc mô tả phim"
-                class="min-w-[360px] bg-[#374151] px-3 py-1.5 outline-none rounded-md">
-            <div class="bg-blue-500 px-3 py-1.5 rounded-md cursor-pointer active:opacity-60 duration-200"
+            <input [(ngModel)]="searchText" type="text" placeholder="Nhập tên phim hoặc mô tả phim"
+                class="min-w-[360px] bg-[#374151] px-3 py-1.5 outline-none rounded-md border-2 border-gray-600 focus:border-blue-600 duration-150">
+            <div class="bg-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md cursor-pointer active:opacity-60 duration-200"
                 [spellcheck]="false">
                 <span class="text-white select-none ">Tìm kiếm</span>
             </div>
@@ -22,28 +22,28 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th class="px-6 py-3">
+                    <th class="px-6 py-3 select-none" (click)="sortBy('title')">
                         Tên phim
                     </th>
-                    <th class="px-6 py-3">
+                    <th class="px-6 py-3 select-none">
                         Hình ảnh
                     </th>
-                    <th class="px-6 py-3">
+                    <th class="px-6 py-3 select-none">
                         Số tập
                     </th>
-                    <th class="px-6 py-3">
+                    <th class="px-6 py-3 select-none">
                         Thể loại
                     </th>
-                    <th class="px-6 py-3">
+                    <th class="px-6 py-3 select-none" (click)="sortBy('year')">
                         Năm phát hành
                     </th>
-                    <th class="px-6 py-3">
+                    <th class="px-6 py-3 select-none">
                         Hành động
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let movie of movies"
+                <tr *ngFor="let movie of movies | searchMovie: searchText"
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 dark:text-white font-medium">
                     <td class="px-6 py-3 whitespace-nowrap">
                         {{movie.title}}
@@ -69,6 +69,11 @@
                             class="bg-red-500 px-3 py-1.5 mx-1.5 rounded-md active:opacity-70 active:scale-90 duration-200">
                             <i class="fa-solid fa-trash text-white"></i>
                         </button>
+                    </td>
+                </tr>
+                <tr *ngIf="movies.length === 0">
+                    <td colspan="6" class="bg-gray-500 py-1.5 text-center w-full">
+                        <span class="text-white">Chưa có dữ liệu</span>
                     </td>
                 </tr>
             </tbody>

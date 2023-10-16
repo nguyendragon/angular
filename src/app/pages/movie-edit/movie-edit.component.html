@@ -3,37 +3,49 @@
         <h3 class="text-white font-medium">Chỉnh sửa phim</h3>
     </div>
     <form (ngSubmit)="onHandleUpdate()" [formGroup]="movieForm">
-        <div class="grid grid-cols-3 gap-4 text-gray-900">
-            <div class="col-span-4">
-                <label for="title" class="block text-[#9595a0]">Nhập tên phim</label>
-                <input type="text" formControlName="title" id="title" class="rounded-md w-full p-2.5 outline-none">
-            </div>
-            <div class="col-span-4">
-                <label for="imageUrl" class="block text-[#9595a0]">Nhập tên phim</label>
-                <input type="text" formControlName="imageUrl" id="imageUrl"
-                    class="rounded-md w-full p-2.5 outline-none">
-            </div>
-            <div>
-                <label for="year" class="block text-[#9595a0]">Năm phát hành</label>
-                <input type="text" id="year" formControlName="year" class="rounded-md w-full p-2.5 outline-none">
-            </div>
-            <div>
-                <label for="nation" class="block text-[#9595a0]">Quốc gia</label>
-                <input type="text" id="nation" formControlName="nation" class="rounded-md w-full p-2.5 outline-none">
-            </div>
-            <div>
-                <label for="categories" class="block text-[#9595a0]">Thể loại</label>
-                <select id="categories" class="border rounded-md block w-full p-2.5 outline-none"
-                    formControlName="categories">
-                    <option [selected]="movie.categories === category._id" [value]="category._id"
-                        *ngFor="let category of categories">{{category.name}}
-                    </option>
-                </select>
-            </div>
-            <div>
-                <label for="duration" class="block text-[#9595a0]">Thời lượng (Phút)</label>
-                <input type="text" id="duration" formControlName="duration"
-                    class="rounded-md w-full p-2.5 outline-none">
+        <div class="grid grid-cols-4 gap-6 text-gray-900">
+            <div class="col-span-4 grid grid-cols-12 gap-6">
+                <div
+                    class="col-span-2 w-full h-full border-2 border-dashed rounded-md flex items-center justify-center">
+                    <span *ngIf="!imageUrl" class="text-white select-none cursor-pointer">Hình ảnh tải lên</span>
+                    <img *ngIf="imageUrl" width="160" [src]="imageUrl" alt="">
+                </div>
+                <div class="col-span-10 grid grid-cols-4 gap-6">
+                    <div class="col-span-4">
+                        <label for="title" class="block text-[#9595a0]">Nhập tên phim</label>
+                        <input type="text" formControlName="title" id="title"
+                            class="rounded-md w-full p-2.5 outline-none">
+                    </div>
+                    <div class="col-span-4">
+                        <label for="imageUrl" class="block text-[#9595a0]">Nhập tên phim</label>
+                        <input type="text" formControlName="imageUrl" id="imageUrl"
+                            class="rounded-md w-full p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label for="year" class="block text-[#9595a0]">Năm phát hành</label>
+                        <input type="text" id="year" formControlName="year"
+                            class="rounded-md w-full p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label for="nation" class="block text-[#9595a0]">Quốc gia</label>
+                        <input type="text" id="nation" formControlName="nation"
+                            class="rounded-md w-full p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label for="categories" class="block text-[#9595a0]">Thể loại</label>
+                        <select id="categories" class="border rounded-md block w-full p-2.5 outline-none"
+                            formControlName="categories">
+                            <option [selected]="movie.categories === category._id" [value]="category._id"
+                                *ngFor="let category of categories">{{category.name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="duration" class="block text-[#9595a0]">Thời lượng (Phút)</label>
+                        <input type="text" id="duration" formControlName="duration"
+                            class="rounded-md w-full p-2.5 outline-none">
+                    </div>
+                </div>
             </div>
             <div class="col-span-4">
                 <label for="extract" class="block text-[#9595a0]">Mô tả phim</label>

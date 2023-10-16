@@ -1,0 +1,66 @@
+<div class="text-white">
+    <div class="text-center pb-10 pt-3">
+        <h1 class="text-2xl font-semibold">Đăng ký tài khoản</h1>
+    </div>
+    <form [formGroup]="formSignUp" class="px-3" (ngSubmit)="handleSubmit()">
+        <div class="mb-6">
+            <input type="text" placeholder="Nhập email hoặc số điện thoại" formControlName="email"
+                class="w-full p-3 rounded-md outline-none bg-[#1010109a] caret-red-500 border border-transparent focus:border-red-600 duration-200"
+                spellcheck="false">
+        </div>
+
+        <div class="mb-6 flex items-center gap-3">
+            <input type="text" placeholder="Nhập họ và tên đệm" formControlName="firstname"
+                class="w-full p-3 rounded-md outline-none bg-[#1010109a] caret-red-500 border border-transparent focus:border-red-600 duration-200"
+                spellcheck="false">
+
+            <input type="text" placeholder="Nhập tên của bạn" formControlName="lastname"
+                class="w-full p-3 rounded-md outline-none bg-[#1010109a] caret-red-500 border border-transparent focus:border-red-600 duration-200"
+                spellcheck="false">
+        </div>
+
+        <div class="mb-6">
+            <input type="text" placeholder="Mật khẩu" formControlName="password"
+                class="w-full p-3 rounded-md outline-none bg-[#1010109a] caret-red-500 border border-transparent focus:border-red-600 duration-200"
+                spellcheck="false">
+        </div>
+
+        <div class="mb-12">
+            <input type="text" placeholder="Nhập lại mật khẩu" formControlName="confirmPassword"
+                class="w-full p-3 rounded-md outline-none bg-[#1010109a] caret-red-500 border border-transparent focus:border-red-600 duration-200"
+                spellcheck="false">
+        </div>
+
+        <button type="submit"
+            class="bg-red-600 p-3 w-full rounded-full cursor-pointer text-center hover:opacity-70 duration-300">
+            <span class="select-none">Đăng ký</span>
+        </button>
+
+        <div class="my-6 text-sm flex items-center justify-center gap-1.5">
+            <span>Bạn đã có tài khoản? </span>
+            <a routerLink="/auth/signin" class="text-blue-500 cursor-pointer">Đăng nhập ngay</a>
+        </div>
+
+        <div class="mt-6 text-center flex items-center justify-center opacity-80">
+            <div class="h-[1px] w-full bg-[#979797]"></div>
+            <div class="px-3 text-[#979797] text-sm select-none">Hoặc</div>
+            <div class="h-[1px] w-full bg-[#979797]"></div>
+        </div>
+
+        <div class="mt-6 pb-3 flex items-center gap-3">
+            <div
+                class="bg-[#fff] p-2 rounded-md flex items-center justify-center gap-3 mb-3 w-full cursor-pointer select-none active:opacity-50 duration-300">
+                <img width="25" src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
+                    alt="">
+                <span class="text-[#000] font-semibold">Google</span>
+            </div>
+            <div
+                class="bg-[#fff] p-2 rounded-md flex items-center justify-center gap-3 mb-3 w-full cursor-pointer select-none active:opacity-50 duration-300">
+                <img width="25"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+                    alt="">
+                <span class="text-[#000] font-semibold">Facebook</span>
+            </div>
+        </div>
+    </form>
+</div>

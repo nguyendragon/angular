@@ -15,6 +15,7 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieEditComponent {
   categories: ICategory[] = [];
   movie!: IMovie;
+  imageUrl?: string = '';
 
   movieForm = this.formBuilder.group({
     title: ['', [Validators.required]],
@@ -36,6 +37,8 @@ export class MovieEditComponent {
       this.movieService.getMovieById(movieId).subscribe({
         next: (movie) => {
           this.movie = movie;
+
+          this.imageUrl = movie.imageUrl;
 
           this.movieForm.patchValue({
             title: movie.title,

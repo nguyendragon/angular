@@ -16,29 +16,34 @@ export class AdminLayoutComponent {
   theme: string = 'dark';
   menus: IMenu[] = [
     {
-      icon: '<i class="text-xl fa-solid fa-chart-pie"></i>',
+      icon: '<i class="text-xl min-w-[25px] fa-solid fa-chart-pie"></i>',
       text: 'Dashboard',
       link: '/admin/dashboard',
     },
     {
-      icon: '<i class="text-xl fa-solid fa-users"></i>',
+      icon: '<i class="text-xl min-w-[25px] fa-solid fa-users"></i>',
       text: 'Quản người dùng',
       link: '/admin/user',
     },
     {
-      icon: '<i class="fa-solid fa-film"></i>',
+      icon: '<i class="text-xl min-w-[25px] fa-solid fa-film"></i>',
       text: 'Quản lý phim',
       link: '/admin/movie',
     },
     {
-      icon: '<i class="fa-solid fa-bookmark"></i>',
+      icon: '<i class="text-xl min-w-[25px] fa-solid fa-bookmark"></i>',
       text: 'Quản lý danh mục',
       link: '/admin/category',
     },
     {
-      icon: '<i class="text-xl fa-solid fa-gear"></i>',
+      icon: '<i class="text-xl min-w-[25px] fa-solid fa-gear"></i>',
       text: 'Cài đặt',
       link: '/admin/settings',
+    },
+    {
+      icon: '<i class="text-xl fa-solid fa-arrow-right-from-bracket rotate-180"></i>',
+      text: 'Quay lại',
+      link: '/auth/signin',
     },
   ];
 

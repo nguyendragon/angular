@@ -1,16 +1,49 @@
 <header class="p-3 flex items-center justify-between border-b xl:border-transparent border-gray-700">
     <div class="flex items-center gap-16">
-        <img width="200" src="https://khoaiphim.com/public/static/logo.png" alt="">
+        <img routerLink="/" width="200" src="https://khoaiphim.com/public/static/logo.png" alt="">
         <app-search-box />
     </div>
-    <div class="flex items-center select-none gap-3">
-        <div
+    <div *ngIf="!userInfo?.email" class="flex items-center select-none gap-3">
+        <div routerLink="/auth/signin"
             class="hover:bg-red-600 border border-red-600 px-6 py-2 rounded-full duration-200 cursor-pointer hover:scale-90">
-            <span>Đăng Nhập</span>
+            <span>Đăng nhập</span>
         </div>
-        <div
+        <div routerLink="/auth/signup"
             class="hover:bg-transparent bg-red-600 border border-red-600 px-6 py-2 rounded-full duration-200 cursor-pointer hover:scale-90">
             <span>Đăng ký</span>
+        </div>
+    </div>
+    <div *ngIf="userInfo?.email" class="flex items-center gap-3 relative cursor-pointer">
+        <div class="flex flex-col items-end">
+            <span class="font-medium">{{userInfo?.firstname + ' ' + userInfo?.lastname}}</span>
+            <span class="text-xs text-gray-400">{{userInfo?.admin ? 'Quản trị viên' : 'Người dùng'}}</span>
+        </div>
+        <div class="border border-dashed rounded-full active:opacity-50 duration-150 select-none"
+            (click)="changeShowMenu()">
+            <img class="rounded-full w-11 h-1w-11 p-1"
+                src="https://cdn.alongwalk.info/vn/wp-content/uploads/2022/10/28234052/image-99-hinh-anh-gai-xinh-mat-moc-dep-xinh-xan-nhat-166695005272464.jpg"
+                alt="">
+        </div>
+
+        <div *ngIf="menuShow"
+            [ngClass]="{'z-10 absolute right-0': true, '-bottom-44': userInfo?.admin, '-bottom-36': !userInfo?.admin}">
+            <div class="rounded-lg shadow w-40 bg-[#101010] border border-gray-700">
+                <ul class="py-0.5 text-sm text-gray-200">
+                    <div *ngIf="userInfo?.admin" routerLink="/admin"
+                        class="py-2.5 px-3 cursor-pointer hover:bg-[#1c1c1c] duration-150">
+                        <span class="select-none">Dashboard</span>
+                    </div>
+                    <div class="py-2.5 px-3 cursor-pointer hover:bg-[#1c1c1c] duration-150">
+                        <span class="select-none">Tài khoản</span>
+                    </div>
+                    <div class="py-2.5 px-3 cursor-pointer hover:bg-[#1c1c1c] duration-150">
+                        <span class="select-none">Cài đặt</span>
+                    </div>
+                    <div (click)="logOut()" class="py-2.5 px-3 cursor-pointer hover:bg-[#1c1c1c] duration-150">
+                        <span class="select-none">Đăng xuất</span>
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
 </header>

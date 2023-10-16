@@ -9,3 +9,11 @@
 #search-box .search-item:last-child {
     border: none;
 }
+
+.circle-xmark {
+    display: none;
+}
+
+input:not(:placeholder-shown)~.circle-xmark {
+    display: block;
+}

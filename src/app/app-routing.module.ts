@@ -15,6 +15,10 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 import { AdminSettingComponent } from './pages/admin/admin-setting/admin-setting.component';
 import { MovieEditComponent } from './pages/movie-edit/movie-edit.component';
 import { MovieAddComponent } from './pages/movie-add/movie-add.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -26,8 +30,17 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'signin', component: SigninComponent },
+      { path: 'signup', component: SignupComponent },
+    ],
+  },
+  {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: AdminDashboardComponent },

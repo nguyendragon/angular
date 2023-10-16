@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-top-movie',
   templateUrl: './top-movie.component.html',
-  styleUrls: ['./top-movie.component.css']
+  styleUrls: ['./top-movie.component.css'],
 })
-export class TopMovieComponent {
-
-}
+export class TopMovieComponent {}

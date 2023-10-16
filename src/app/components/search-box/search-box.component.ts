@@ -1,5 +1,6 @@
 import { MovieService } from 'src/app/services/movie.service';
 import { Component } from '@angular/core';
+import { IMovie } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-search-box',
@@ -7,17 +8,52 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-box.component.css'],
 })
 export class SearchBoxComponent {
-  searchText: string = '';
+  searchTerm: string = '';
   searchResults: any = [];
+  debounceTimeout: any = '';
 
   constructor(private movieService: MovieService) {}
 
-  handleSearch(event: any): void {
-    if (event.key === 'Enter' && this.searchText) {
-      const searchText = this.searchText;
-      this.movieService
-        .searchMovie(searchText)
-        .subscribe((data) => (this.searchResults = data));
+  onInput(event: Event) {
+    clearTimeout(this.debounceTimeout);
+    this.debounceTimeout = setTimeout(() => {
+      const searchTerm = (event.target as HTMLInputElement).value;
+      this.handleSearch(searchTerm);
+    }, 300);
+  }
+
+  handleSearch(searchTerm: string) {
+    if (searchTerm) {
+      const searchTerm = this.searchTerm;
+      this.movieService.searchMovie(searchTerm).subscribe((data: any) => {
+        if (data && data.movies) {
+          this.searchResults = data.movies;
+        } else {
+          this.searchResults = [];
+        }
+      });
+    } else {
+      this.searchResults = [];
     }
   }
+
+  clearSearchResult() {
+    this.searchTerm = '';
+    this.searchResults = [];
+  }
+
+  // handleSearch(event: any): void {
+  //   if (event.key === 'Enter' && this.searchTerm) {
+  //     const searchTerm = this.searchTerm;
+  //     this.movieService.searchMovie(searchTerm).subscribe((data: any) => {
+  //       if (data && data.movies) {
+  //         this.searchResults = data.movies;
+  //       } else {
+  //         this.searchResults = [];
+  //       }
+  //     });
+  //   } else {
+  //     this.searchResults = [];
+  //   }
+  // }
 }
